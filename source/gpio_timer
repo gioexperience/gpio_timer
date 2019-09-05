@@ -1,0 +1,73 @@
+#!/usr/bin/env php
+<?php
+
+/*    
+      see www.gioexperience.com for more details
+*/
+
+
+$pin=@intval($argv[1]);
+$URL=@$argv[2];
+
+function fast_request($url)
+{
+	echo "call $url\n";
+	$p=parse_url($url);
+	$fp = @fsockopen($p["host"], 80, $errno, $errstr, 1);
+	if( $fp==false ) return;
+	
+	$out = "GET ".$p["path"]."?".$p["query"]." HTTP/1.1\r\n";
+    $out .= "Host: ".$p["host"]."\r\n";
+    $out .= "Connection: Close\r\n\r\n";
+    fwrite($fp, $out);
+    fclose($fp);
+}
+
+function read($pin)
+{
+	$val=shell_exec("gpio -g read $pin");
+	return intval($val);
+}
+
+
+if( $argc>1 && $pin && $URL!="" )
+{
+	
+	if( strpos($URL,"?")==false ) $URL.="?1=1";
+
+	$sum=0;
+	while(true)
+	{
+		while( read($pin)==1 )
+			usleep(0.1*1000*1000);
+
+		$t0=microtime(true);
+
+		while( read($pin)==0 )
+			usleep(0.1*1000*1000);
+
+		$delta=round(microtime(true)-$t0,3);
+		$sum+=$delta;
+
+		if( $sum>10 )
+		{
+			fast_request($URL."&t=$sum");
+			$sum=0;
+		}
+	}
+}
+else
+{
+	echo "\n";
+	echo "Usage:  gpio_time [pin] [url_to_call]\n";
+	echo " \n";
+	echo "        # For example using ./gpio_time 7 'http://192.168.0.1/api/foo.php'\n";
+	echo "        # This application monitor a pin when it go to 0 state (active-low philosophy)\n";
+	echo "        # When the total active-time (in seconds) exceeds 10 seconds, he call the url and pass a\n";
+	echo "        # parameter 't' with the seconds. Example http://192.168.0.1/api/foo.php?t=11.34\n";
+	echo "\n";
+	die();
+}
+
+
+?>
