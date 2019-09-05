@@ -16,10 +16,7 @@ sudo ~/gpio_timer/install.sh
 
 ```
 cd ~/gpio_timer
-git reset --hard
-git pull
-chmod +x ~/gpio_timer/install.sh
-sudo ~/gpio_timer/install.sh
+sudo ./update.sh
 ```
 
 ## usage
