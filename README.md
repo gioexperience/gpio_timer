@@ -8,7 +8,6 @@ sudo apt-get install -y wiringpi php git-core
 cd ~
 git clone "https://github.com/gioexperience/gpio_timer.git"
 chmod +x ~/gpio_timer/install.sh
-chmod +x ~/gpio_timer/update.sh
 sudo ~/gpio_timer/install.sh
 ```
 
