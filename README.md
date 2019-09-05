@@ -20,11 +20,11 @@ sudo ~/gpio_timer/update.sh
 
 ## usage
 
-```gpio_time [pin] [url_to_call]```
+```gpio_timer [pin] [url_to_call]```
 
 For example using 
 
-```./gpio_time 7 'http://192.168.0.1/api/foo.php'```
+```./gpio_timer 7 'http://192.168.0.1/api/foo.php'```
 
 This example monitor pin 7 when it go to active, 0 value (active-low philosophy)
 When the total active-time (in seconds) exceeds 10 seconds, he call the url and pass a
