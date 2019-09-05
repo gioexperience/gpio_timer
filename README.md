@@ -30,7 +30,7 @@ For example using
 
 ```./gpio_time 7 'http://192.168.0.1/api/foo.php'```
 
-This application monitor a pin when it go to 0 state (active-low philosophy)
+This example monitor pin 7 when it go to active, 0 value (active-low philosophy)
 When the total active-time (in seconds) exceeds 10 seconds, he call the url and pass a
-parameter 't' with the seconds. Example http://192.168.0.1/api/foo.php?t=11.34
+parameter 't' with the exactly seconds. Example http://192.168.0.1/api/foo.php?t=11.34
 
