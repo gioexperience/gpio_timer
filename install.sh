@@ -9,11 +9,11 @@ fi
 
 apt-get install wiringpi php -y
 
+chmod +x ~/gpio_timer/update.sh
+
 echo "installing serc..."
 cp ./source/gpio_timer /usr/local/bin/gpio_timer
 chmod +x /usr/local/bin/gpio_timer
-
-chmod +x ./update.sh
 
 echo "Finish"
 echo ""
