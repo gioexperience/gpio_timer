@@ -14,7 +14,7 @@ sudo ~/gpio_timer/install.sh
 ## for update from git-hub
 
 ```
-cd
+cd ~/gpio_timer
 sudo ./update.sh
 ```
 
