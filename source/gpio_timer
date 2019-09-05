@@ -59,9 +59,9 @@ if( $argc>1 && $pin && $URL!="" )
 else
 {
 	echo "\n";
-	echo "Usage:  gpio_time [pin] [url_to_call]\n";
+	echo "Usage:  gpio_timer [pin] [url_to_call]\n";
 	echo " \n";
-	echo "        # For example using ./gpio_time 7 'http://192.168.0.1/api/foo.php'\n";
+	echo "        # For example using ./gpio_timer 7 'http://192.168.0.1/api/foo.php'\n";
 	echo "        # This application monitor a pin when it go to 0 state (active-low philosophy)\n";
 	echo "        # When the total active-time (in seconds) exceeds 10 seconds, he call the url and pass a\n";
 	echo "        # parameter 't' with the seconds. Example http://192.168.0.1/api/foo.php?t=11.34\n";
