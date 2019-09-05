@@ -7,16 +7,15 @@ count how many seconds a gpio-pin of your raspberry stand up
 sudo apt-get install -y wiringpi php git-core
 cd ~
 git clone "https://github.com/gioexperience/gpio_timer.git"
-cd gpio_timer
-chmod +x install.sh
+chmod +x ~/gpio_timer/install.sh
+chmod +x ~/gpio_timer/update.sh
 sudo ~/gpio_timer/install.sh
 ```
 
 ## for update from git-hub
 
 ```
-cd ~/gpio_timer
-sudo ./update.sh
+sudo ~/gpio_timer/update.sh
 ```
 
 ## usage
