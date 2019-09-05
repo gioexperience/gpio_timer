@@ -11,7 +11,7 @@ chmod +x ~/gpio_timer/install.sh
 sudo ~/gpio_timer/install.sh
 ```
 
-## for update from git-hub
+## update from git-hub
 
 ```
 cd ~/gpio_timer
