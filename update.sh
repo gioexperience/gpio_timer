@@ -7,9 +7,8 @@ if [ "$USER" != "root" ]; then
 	exit 0
 fi
 
-```
 git reset --hard
 git pull
 chmod +x ./install.sh
 sudo ./install.sh
-```
+
