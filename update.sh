@@ -8,9 +8,8 @@ if [ "$USER" != "root" ]; then
 fi
 
 ```
-cd ~/gpio_timer
 git reset --hard
 git pull
-chmod +x ~/gpio_timer/install.sh
-sudo ~/gpio_timer/install.sh
+chmod +x ./install.sh
+sudo ./install.sh
 ```
