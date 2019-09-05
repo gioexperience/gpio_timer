@@ -15,6 +15,7 @@ sudo ~/gpio_timer/install.sh
 
 ```
 cd ~/gpio_timer
+sudo chmod +x ./update.sh
 sudo ./update.sh
 ```
 
