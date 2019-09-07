@@ -11,7 +11,6 @@ $URL=@$argv[2];
 
 function fast_request($url)
 {
-	echo "call $url\n";
 	$p=parse_url($url);
 	$fp = @fsockopen($p["host"], 80, $errno, $errstr, 1);
 	if( $fp==false ) return;
@@ -25,8 +24,10 @@ function fast_request($url)
 
 function read($pin)
 {
-	$val=shell_exec("gpio -g read $pin");
-	return intval($val);
+	$cmd="gpio -g read $pin";
+	$val=shell_exec($cmd);
+	$ret=intval($val);
+	return $val;
 }
 
 
@@ -49,8 +50,11 @@ if( $argc>1 && $pin && $URL!="" )
 		$delta=round(microtime(true)-$t0,3);
 		$sum+=$delta;
 
+		echo "+ $delta \n";
+
 		if( $sum>10 )
 		{
+			echo "$sum sec\n";
 			fast_request($URL."&t=$sum");
 			$sum=0;
 		}
