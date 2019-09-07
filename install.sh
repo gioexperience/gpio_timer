@@ -10,7 +10,7 @@ fi
 apt-get install wiringpi php -y
 
 echo "installing..."
-cd ~/gpio_timer
+cd /home/pi/gpio_timer
 cp ./source/gpio_timer /usr/local/bin/gpio_timer
 chmod +x /usr/local/bin/gpio_timer
 
